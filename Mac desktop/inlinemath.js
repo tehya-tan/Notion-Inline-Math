@@ -64,6 +64,11 @@ function rerender_all(e) {
             }        
 
             katex.render(s, el, {throwOnError: true, font: "mathit"});
+        }else if (s.startsWith("$")) {
+            el.style.color = null;
+            el.style.background = null;
+            s = s.slice(1).trim();
+            katex.render(s, el, {throwOnError: true, font: "mathit"});
         }
     });
 }
